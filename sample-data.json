@@ -1,0 +1,41 @@
+
+{ "members":
+  [
+    {
+      "memberName": "Mark Williams",
+      "memberSince": "2009",
+      "clubOfficer": "President",
+      "memberProfile": "I enjoy racing Lido's and am delighted to serve the club."
+    },
+    {
+      "memberName": "Melissa Franken",
+      "memberSince": "2012",
+      "clubOfficer": "Treasurer",
+      "memberProfile": "I grew up sailing in the youth program and am glad to have the opportunity to give back."
+    },
+    {
+      "memberName": "Tony Swift",
+      "memberSince": "1994",
+      "clubOfficer": "Manager",
+      "memberProfile": "Very proud to be a part of this organization and support its mission. You will also see me and crew in a Thistle!"
+    },
+    {
+      "memberName": "Jane Austin",
+      "memberSince": "2009",
+      "clubOfficer": "",
+      "memberProfile": "You'll see me racing on my laser!"
+    },
+    {
+      "memberName": "Harrison Ford",
+      "memberSince": "2012",
+      "clubOfficer": "",
+      "memberProfile": "I sailed as a youth and am back racing Lidos!"
+    },
+    {
+      "memberName": "Fritz Morrison",
+      "memberSince": "1969",
+      "clubOfficer": "",
+      "memberProfile": "This club is a family tradition and I still crew on Lido's - give me a call!"
+    }
+  ]
+}

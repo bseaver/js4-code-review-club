@@ -39,7 +39,8 @@ The following is required to create or use this example.
 ## Firebase Prerequisites to run app on your computer):
 * Create your own account on Google Firebase
 * Create a project on Firebase for this app, say "fundme"
-* Modify the app's database rules as follows:
+* Optionally seed your project with data imported from `sample-data.json`
+* Modify and Publish the app's database rules as follows:
 
 ``` JSON
 {
@@ -96,7 +97,8 @@ Edit this file and fill with your project's API and other info as follows:
 ## Commands used to create parts of project:
 ``` sh
   ng new club
-  
+  cd club
+
   bower init
   bower install bootstrap --save
 
@@ -106,17 +108,16 @@ Edit this file and fill with your project's API and other info as follows:
   ng g component about
   touch src/app/app.routing.ts
 
-  ng g component member-list
-  ng g component profile
-
   ng g class member.model
-  ng g service member.service
-  npm install angularfire2 firebase --save
+  touch sample-data.json
 
   touch src/app/api-keys.ts
 
+  ng g component member-list
+  ng g component profile
+
   ng g service member.service
-  ng g class member.model
+  npm install angularfire2 firebase --save
 
   ng g pipe member
 
