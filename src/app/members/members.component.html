@@ -14,7 +14,7 @@
 <br>
 <br>
 <div
-  *ngFor="let member of members | async"
+  *ngFor="let member of members | async | member:filterByOfficer"
   class="panel panel-default clickable"
   (click)="viewProfile(member)"
 >

@@ -116,10 +116,10 @@ Edit this file and fill with your project's API and other info as follows:
 
   ng g service member.service
 
+  ng g pipe member
+
   ng g component member-list
   ng g component profile
-
-  ng g pipe member
 
 ```
 

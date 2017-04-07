@@ -13,6 +13,9 @@ import { routing } from './app.routing';
 
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
+
+import { MemberPipe } from './member.pipe';
+
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
   authDomain: masterFirebaseConfig.authDomain,
@@ -27,7 +30,8 @@ export const firebaseConfig = {
     HomeComponent,
     MembersComponent,
     AdminComponent,
-    AboutComponent
+    AboutComponent,
+    MemberPipe
   ],
   imports: [
     BrowserModule,
