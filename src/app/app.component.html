@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">Home</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="members">Members</a></li>
+      <li><a routerLink="admin">Admin</a></li>
+      <li><a routerLink="about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2 class="text-center">{{title}}</h2>
+  <!-- <router-outlet></router-outlet> -->
+</div>
