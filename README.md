@@ -96,19 +96,21 @@ Edit this file and fill with your project's API and other info as follows:
 ## Commands used to create parts of project:
 ``` sh
   ng new club
+  
   bower init
   bower install bootstrap --save
 
   ng g component home
-  ng g component about
   ng g component members
-  ng g component profile
   ng g component admin
-  ng g component members-list
+  ng g component about
+  touch src/app/app.routing.ts
+
+  ng g component member-list
+  ng g component profile
 
   ng g class member.model
   ng g service member.service
-  touch src/app/app.routing.ts
   npm install angularfire2 firebase --save
 
   touch src/app/api-keys.ts
