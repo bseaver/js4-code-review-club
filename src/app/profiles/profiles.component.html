@@ -1,3 +1,15 @@
-<p>
-  profiles works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{thisMember?.memberName}}
+  </div>
+
+  <div class="panel-body">
+    <h4 *ngIf="thisMember?.clubOfficer">{{thisMember?.clubOfficer}}</h4>
+    <p>Member Since <strong>{{thisMember?.memberSince}}</strong>
+
+    <div *ngIf="thisMember?.memberProfile">
+      <h4>Profile:</h4>
+      <p>{{thisMember?.memberProfile}}</p>
+    </div>
+  </div>
+</div>
