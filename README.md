@@ -1,28 +1,124 @@
-# Club
+# Sailing Club
+
+## Epicodus JavaScript Week 4 Code Review using Angular 2 CLI.
+
+#### Demonstrate Essential Angular CLI features including dynamic routing and data stored in Firebase.
+
+## Copyright (c)
+* 2017 Benjamin T. Seaver
+
+## Known Bugs
+* No known bugs
+
+## Support and contact details
+* None
+
+## License
+* MIT
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-## Development server
+## Summarized User Story
+* About page and Welcome page
+* Page for all club members
+* Pipe to filter club officers or all members
+* Click on member to go to profile page
+* Admin page to enable Add, Edit, Delete of members
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Software Prerequisites
+The following is required to create or use this example.
 
-## Code scaffolding
+* [Git](https://git-scm.com/)
+* [Node.js](https://nodejs.org/) (with NPM)
+* [Bower](https://bower.io/)
+* [Angular 2](https://github.com/angular/angular-cli)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Additional Software Utilized
+* [Bootstrap](http://getbootstrap.com/)
 
-## Build
+## Firebase Prerequisites to run app on your computer):
+* Create your own account on Google Firebase
+* Create a project on Firebase for this app, say "fundme"
+* Modify the app's database rules as follows:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+``` JSON
+{
+    "rules": {
+      ".read": "true",
+      ".write": "true"
+    }
+}
+```
+* Click `Overview`, `Add Firebase to your Web app` and copy your project's API and other info displayed within Firebase's `var config = {...}`.
 
-## Running unit tests
+In Project root, create file: `src/app/api-keys.ts`.
+Edit this file and fill with your project's API and other info as follows:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+``` js
+  export const masterFirebaseConfig = {
+    apiKey: 'your-apiKey-here',
+    authDomain: 'your-authDomain-here.firebaseapp.com',
+    databaseURL: 'https://your-databaseURL-here.firebaseio.com',
+    projectId: 'your-projectId-here',
+    storageBucket: 'your-storageBucket-here.appspot.com',
+    messagingSenderId: 'your-messagingSenderId-here'
+  }
+```
 
-## Running end-to-end tests
+## Install and run
+* See Essential Firebase instructions:
+* `git clone <this-repository-url>`
+* `cd <repository-folder>`
+* `npm install`
+* `bower install`
+* `ng serve`
+* Open browser to `localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Project development plan
+* Generate new Angular2 CLI project
+* Initial README.md
+* Integrate Twitter Bootstrap styling
+* Navbar
+* Home, About, Members, Admin routes
+* Create sample data
+* Create Firebase app and import sample data
+* Display list of members
+* Create filter (pipe) for members
+* Display member profile
+* Display list of members on Admin page
+* Add new member
+* Delete member
+* Edit member
+* Improve styling of project
+* use `ng lint` to improve typescript compliance
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Commands used to create parts of project:
+``` sh
+  ng new club
+  bower init
+  bower install bootstrap --save
+
+  ng g component home
+  ng g component about
+  ng g component members
+  ng g component profile
+  ng g component admin
+  ng g component members-list
+
+  ng g class member.model
+  ng g service member.service
+  touch src/app/app.routing.ts
+  npm install angularfire2 firebase --save
+
+  touch src/app/api-keys.ts
+
+  ng g service member.service
+  ng g class member.model
+
+  ng g pipe member
+
+```
+
+
+##### End of File
