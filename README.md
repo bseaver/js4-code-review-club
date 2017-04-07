@@ -63,7 +63,7 @@ Edit this file and fill with your project's API and other info as follows:
     projectId: 'your-projectId-here',
     storageBucket: 'your-storageBucket-here.appspot.com',
     messagingSenderId: 'your-messagingSenderId-here'
-  }
+  };
 ```
 
 ## Install and run
@@ -112,12 +112,12 @@ Edit this file and fill with your project's API and other info as follows:
   touch sample-data.json
 
   touch src/app/api-keys.ts
+  npm install angularfire2 firebase --save
 
   ng g component member-list
   ng g component profile
 
   ng g service member.service
-  npm install angularfire2 firebase --save
 
   ng g pipe member
 
