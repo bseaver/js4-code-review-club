@@ -4,3 +4,26 @@
     View Member List and Profiles
   </p>
 </div>
+
+<br>
+<select (change)="filterChange($event.target.value)">
+  <option value="all">All Members</option>
+  <option value="officers">Club Officers</option>
+</select>
+
+<br>
+<br>
+<div
+  *ngFor="let member of members | async"
+  class="panel panel-default clickable"
+  (click)="viewProfile(member)"
+>
+  <div class="panel-heading">
+    {{member.memberName}}
+  </div>
+
+  <div class="panel-body">
+    <h4 *ngIf="member.clubOfficer">{{member.clubOfficer}}</h4>
+    <p>Member Since <strong>{{member.memberSince}}</strong>
+  </div>
+</div>

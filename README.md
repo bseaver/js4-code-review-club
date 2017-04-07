@@ -114,10 +114,10 @@ Edit this file and fill with your project's API and other info as follows:
   touch src/app/api-keys.ts
   npm install angularfire2 firebase --save
 
+  ng g service member.service
+
   ng g component member-list
   ng g component profile
-
-  ng g service member.service
 
   ng g pipe member
 
