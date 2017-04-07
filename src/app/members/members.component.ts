@@ -24,7 +24,7 @@ export class MembersComponent implements OnInit {
   }
 
   viewProfile(thisMember) {
-    this.router.navigate(['profile', thisMember.$key]);
+    this.router.navigate(['profiles', thisMember.$key]);
   }
 
   filterChange(selection: string) {

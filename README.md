@@ -118,8 +118,9 @@ Edit this file and fill with your project's API and other info as follows:
 
   ng g pipe member
 
+  ng g component profiles
+  
   ng g component member-list
-  ng g component profile
 
 ```
 
