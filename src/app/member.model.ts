@@ -3,15 +3,9 @@ export class Member {
     public memberName = '',
     public memberSince = '',
     public memberProfile = '',
-    public clubOfficer = ''
+    public clubOfficer = '',
+    public $key = null
   ) { }
-
- resetFields() {
-    this.memberName = '';
-    this.memberSince = '';
-    this.memberProfile = '';
-    this.clubOfficer = '';
-  }
 
   sanitizeFields() {
     this.memberName = this.memberName.trim();
@@ -24,12 +18,10 @@ export class Member {
     this.sanitizeFields();
     let message = '';
     if (!this.memberName) {
-      console.log("memberName = " + this.memberName);
-      
-      message += (message?'  ':'') + 'Name is required.'
+      message += (message ? '  ' : '') + 'Name is required.';
     }
     if (!this.memberSince) {
-      message += (message?'  ':'') + 'Member Since is required.'
+      message += (message ? '  ' : '') + 'Member Since is required.';
     }
     return message;
   }

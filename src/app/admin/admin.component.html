@@ -31,38 +31,48 @@
           <td>{{member.memberSince}}</td>
           <td>{{member.clubOfficer}}</td>
           <td><button class="btn btn-sm btn-info">Edit</button></td>
-          <td><button class="btn btn-danger">Delete</button></td>
-        </tr>
-        <tr>
-          <td><button class="btn btn-primary">New Member</button></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><button (click)="deleteMember(member);" class="btn btn-danger">Delete</button></td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="col-md-6">
-    <div *ngIf="newForm">
-      <div class="form-group">
-        <h3>Enter a New Member:</h3>
-        <label>Name</label>
-        <input [(ngModel)]="edit.memberName" class="form-control">
-        <label>Member Since</label>
-        <input *ngIf='missingMemberSince' class="form-control" value="Member Since is required." disabled>
-        <input [(ngModel)]="edit.memberSince" class="form-control">
-        <label>Profile</label>
-        <textarea [(ngModel)]="edit.memberProfile" class="form-control" rows= 8></textarea>
-        <label>Club Officer</label>
-        <input [(ngModel)]="edit.clubOfficer" class="form-control">
-        <br>
-        <input *ngIf='editValidationMessage' class="form-control" [(ngModel)]="editValidationMessage" disabled>
-        <br>
-        <button (click)="saveNewMember();" class='btn btn-info'>Save New Member</button>
-      </div>
-    </div>
-  </div>
+    <div class="form-group">
+      <h3 *ngIf="newForm">Enter a New Member:</h3>
+      <h3 *ngIf="deleteForm">Delete this member?</h3>
 
-</div>
+      <label>Name</label>
+      <input [(ngModel)]="edit.memberName" [readonly]="deleteForm" class="form-control">
+
+      <label>Member Since</label>
+      <input [(ngModel)]="edit.memberSince" [readonly]="deleteForm" class="form-control">
+
+      <label>Profile</label>
+      <textarea [(ngModel)]="edit.memberProfile" [readonly]="deleteForm" class="form-control" rows= 8></textarea>
+
+      <label>Club Officer</label>
+      <input [(ngModel)]="edit.clubOfficer" [readonly]="deleteForm" class="form-control">
+
+      <br>
+      <input *ngIf='editValidationMessage' class="form-control" [(ngModel)]="editValidationMessage" disabled>
+      <br>
+
+      <button *ngIf="newForm" (click)="saveNewMember();" class="btn btn-info">Save New Member</button>
+
+      <table *ngIf="deleteForm" class="table">
+        <tbody>
+          <tr>
+            <td class="text-left">
+              <button (click)="deleteMemberCanceled();" class="btn btn-info">Cancel Deletion</button>
+            </td>
+            <td class="text-right">
+              <button (click)="deleteMemberConfirmed();" class="btn btn-danger">Confirm Deletion</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- form-group -->
+  </div> <!-- col-md-6 -->
+
+</div> <!-- row -->

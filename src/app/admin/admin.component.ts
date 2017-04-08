@@ -17,6 +17,8 @@ export class AdminComponent implements OnInit {
   members: FirebaseListObservable<any[]>;
   filterByOfficer = 'all';
   newForm = true;
+  editForm = false;
+  deleteForm = false;
   edit = new Member();
   editValidationMessage = '';
 
@@ -29,19 +31,50 @@ export class AdminComponent implements OnInit {
     this.members = this.memberService.getMembers();
   }
 
-  saveNewMember() {
-    this.editValidationMessage = this.edit.validationMessage();
-    console.log(this.editValidationMessage);
-
-    if (!this.editValidationMessage) {
-      const promise = this.memberService.addMember(this.edit);
-      promise.then((whatever) => {this.edit.resetFields()});
+  resetForm(setNew = true) {
+    this.newForm = false;
+    this.deleteForm = false;
+    this.editForm = false;
+    if (setNew) {
+      this.edit = new Member();
+      this.newForm = true;
     }
   }
 
-  // viewProfile(thisMember) {
-  //   this.router.navigate(['profiles', thisMember.$key]);
-  // }
+  saveNewMember() {
+    this.editValidationMessage = this.edit.validationMessage();
+
+    if (!this.editValidationMessage) {
+      const promise = this.memberService.addMember(this.edit);
+      promise.then((success) => {
+        this.resetForm();
+      }).catch((failure) => {
+        console.log("Member Save New Failed!");
+        console.log(failure);
+      });
+
+    }
+  }
+
+  deleteMember(member) {
+    this.resetForm(false);
+    this.edit = member;
+    this.deleteForm = true;
+  }
+
+  deleteMemberCanceled() {
+    this.resetForm();
+  }
+
+  deleteMemberConfirmed() {
+    const promise = this.memberService.deleteMember(this.edit);
+    promise.then((success) => {
+      this.resetForm();
+    }).catch((failure) => {
+      console.log("Member Delete Failed!");
+      console.log(failure);
+    });
+  }
 
   filterChange(selection: string) {
     this.filterByOfficer = selection;

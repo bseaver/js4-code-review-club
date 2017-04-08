@@ -19,17 +19,21 @@ export class MemberService {
   }
 
   addMember(newMember: Member) {
+    // Remove unassigned key (Firebase will then create one)
+    if (!newMember.$key) {
+      delete newMember.$key;
+    }
     return this.members.push(newMember);
   }
 
-  deleteMember(memberId: string) {
-    const memberInFirebase = this.getMemberById(memberId);
-    memberInFirebase.remove();
+  deleteMember(member: Member) {
+    const memberInFirebase = this.getMemberById(member.$key);
+    return memberInFirebase.remove();
   }
 
   updateMember(memberId: string, localMember: Member) {
     const memberInFirebase = this.getMemberById(memberId);
-    memberInFirebase.update({
+    return memberInFirebase.update({
       memberName: localMember.memberName,
       memberSince: localMember.memberSince,
       memberProfile: localMember.memberProfile,
