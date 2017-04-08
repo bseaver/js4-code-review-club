@@ -19,7 +19,7 @@ export class MemberService {
   }
 
   addMember(newMember: Member) {
-    this.members.push(newMember);
+    return this.members.push(newMember);
   }
 
   deleteMember(memberId: string) {

@@ -11,14 +11,32 @@ import { MemberService } from './../member.service';
   styleUrls: ['./admin.component.css'],
   providers: [MemberService]
 })
+
+
 export class AdminComponent implements OnInit {
   members: FirebaseListObservable<any[]>;
   filterByOfficer = 'all';
+  newForm = true;
+  edit = new Member();
+  editValidationMessage = '';
 
-  constructor(private router: Router, private memberService: MemberService) { }
+  constructor(
+    private router: Router,
+    private memberService: MemberService
+  ) { }
 
   ngOnInit() {
     this.members = this.memberService.getMembers();
+  }
+
+  saveNewMember() {
+    this.editValidationMessage = this.edit.validationMessage();
+    console.log(this.editValidationMessage);
+
+    if (!this.editValidationMessage) {
+      const promise = this.memberService.addMember(this.edit);
+      promise.then((whatever) => {this.edit.resetFields()});
+    }
   }
 
   // viewProfile(thisMember) {
