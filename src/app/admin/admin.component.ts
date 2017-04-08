@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
       promise.then((success) => {
         this.resetForm();
       }).catch((failure) => {
-        console.log("Member Save New Failed!");
+        console.log('Member Save New Failed!');
         console.log(failure);
       });
     }
@@ -70,7 +70,7 @@ export class AdminComponent implements OnInit {
     promise.then((success) => {
       this.resetForm();
     }).catch((failure) => {
-      console.log("Member Delete Failed!");
+      console.log('Member Delete Failed!');
       console.log(failure);
     });
   }
@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
       promise.then((success) => {
         this.resetForm();
       }).catch((failure) => {
-        console.log("Member Update Failed!");
+        console.log('Member Update Failed!');
         console.log(failure);
       });
     }
