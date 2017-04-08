@@ -1,0 +1,6 @@
+.button-table th, .button-table td {
+    border-top: none !important;
+    border-left: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}

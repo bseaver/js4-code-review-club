@@ -30,8 +30,8 @@
           <td>{{member.memberName}}</td>
           <td>{{member.memberSince}}</td>
           <td>{{member.clubOfficer}}</td>
-          <td><button class="btn btn-sm btn-info">Edit</button></td>
-          <td><button (click)="deleteMember(member);" class="btn btn-danger">Delete</button></td>
+          <td><button (click)="editMember(member);" class="btn btn-xs btn-info">Edit</button></td>
+          <td><button (click)="deleteMember(member);" class="btn btn-xs btn-danger">Delete</button></td>
         </tr>
       </tbody>
     </table>
@@ -40,6 +40,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <h3 *ngIf="newForm">Enter a New Member:</h3>
+      <h3 *ngIf="editForm">Edit this member?</h3>
       <h3 *ngIf="deleteForm">Delete this member?</h3>
 
       <label>Name</label>
@@ -58,16 +59,16 @@
       <input *ngIf='editValidationMessage' class="form-control" [(ngModel)]="editValidationMessage" disabled>
       <br>
 
-      <button *ngIf="newForm" (click)="saveNewMember();" class="btn btn-info">Save New Member</button>
-
-      <table *ngIf="deleteForm" class="table">
+      <table class="table button-table">
         <tbody>
           <tr>
             <td class="text-left">
-              <button (click)="deleteMemberCanceled();" class="btn btn-info">Cancel Deletion</button>
+              <button *ngIf="newForm" (click)="saveNewMember();" class="btn btn-primary">Save New Member</button>
+              <button *ngIf="editForm" (click)="updateMember();" class="btn btn-primary">Update Member</button>
+              <button *ngIf="deleteForm" (click)="deleteMemberConfirmed();" class="btn btn-danger">Confirm Deletion</button>
             </td>
             <td class="text-right">
-              <button (click)="deleteMemberConfirmed();" class="btn btn-danger">Confirm Deletion</button>
+              <button (click)="resetForm();" class="btn btn-warning">Cancel</button>
             </td>
           </tr>
         </tbody>

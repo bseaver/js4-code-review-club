@@ -14,6 +14,14 @@ export class Member {
     this.clubOfficer = this.clubOfficer.trim();
   }
 
+  copyFields(fromMember: Member) {
+    this.memberName = fromMember.memberName;
+    this.memberSince = fromMember.memberSince;
+    this.memberProfile = fromMember.memberProfile;
+    this.clubOfficer = fromMember.clubOfficer;
+    this.$key = fromMember.$key;
+  }
+
   validationMessage() {
     this.sanitizeFields();
     let message = '';

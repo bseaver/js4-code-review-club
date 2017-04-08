@@ -31,13 +31,13 @@ export class MemberService {
     return memberInFirebase.remove();
   }
 
-  updateMember(memberId: string, localMember: Member) {
-    const memberInFirebase = this.getMemberById(memberId);
+  updateMember(editMember: Member) {
+    const memberInFirebase = this.getMemberById(editMember.$key);
     return memberInFirebase.update({
-      memberName: localMember.memberName,
-      memberSince: localMember.memberSince,
-      memberProfile: localMember.memberProfile,
-      clubOfficer: localMember.clubOfficer
+      memberName: editMember.memberName,
+      memberSince: editMember.memberSince,
+      memberProfile: editMember.memberProfile,
+      clubOfficer: editMember.clubOfficer
     });
   }
 }

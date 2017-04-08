@@ -31,12 +31,16 @@ export class AdminComponent implements OnInit {
     this.members = this.memberService.getMembers();
   }
 
+  filterChange(selection: string) {
+    this.filterByOfficer = selection;
+  }
+
   resetForm(setNew = true) {
+    this.edit = new Member();
     this.newForm = false;
     this.deleteForm = false;
     this.editForm = false;
     if (setNew) {
-      this.edit = new Member();
       this.newForm = true;
     }
   }
@@ -52,7 +56,6 @@ export class AdminComponent implements OnInit {
         console.log("Member Save New Failed!");
         console.log(failure);
       });
-
     }
   }
 
@@ -60,10 +63,6 @@ export class AdminComponent implements OnInit {
     this.resetForm(false);
     this.edit = member;
     this.deleteForm = true;
-  }
-
-  deleteMemberCanceled() {
-    this.resetForm();
   }
 
   deleteMemberConfirmed() {
@@ -76,7 +75,23 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  filterChange(selection: string) {
-    this.filterByOfficer = selection;
+  editMember(member) {
+    this.resetForm(false);
+    this.edit.copyFields(member);
+    this.editForm = true;
+  }
+
+  updateMember() {
+    this.editValidationMessage = this.edit.validationMessage();
+
+    if (!this.editValidationMessage) {
+      const promise = this.memberService.updateMember(this.edit);
+      promise.then((success) => {
+        this.resetForm();
+      }).catch((failure) => {
+        console.log("Member Update Failed!");
+        console.log(failure);
+      });
+    }
   }
 }
